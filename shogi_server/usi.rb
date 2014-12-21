@@ -27,11 +27,7 @@ module ShogiServer # for a namespace
       # ...
       # i -> 9
       def alphabetToDan(s)
-        if RUBY_VERSION >= "1.9.1"
-          return s.bytes[0]-96
-        else
-          return s[0]-96
-        end
+        return s.unpack("C")[0]-96
       end
 
       def csaPieceToUsi(csa, sente)
