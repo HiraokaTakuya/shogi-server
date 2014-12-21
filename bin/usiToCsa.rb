@@ -407,7 +407,7 @@ class BridgeState
       if /depth\s(\d+)/ =~ str
         @depth = $1
       end
-      if /score\s+cp\s+(\d+)/ =~ str
+      if /score\s+cp\s+(-?\d+)/ =~ str
         @cp = $1.to_i
         if !@side
           @cp *= -1
