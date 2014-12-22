@@ -412,6 +412,11 @@ class BridgeState
         if !@side
           @cp *= -1
         end
+      elsif /score\s+mate\s+(-?\d+)/ =~ str
+        @cp = ($1.to_i < 0 ? -100000 : 100000)
+        if !@side
+          @cp *= -1
+        end
       end
       if /pv\s+(.*)$/ =~str
         @pv = $1
